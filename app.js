@@ -23,17 +23,6 @@ app.get("/", function(req, res){
   res.render("home", { blogPost: homeContent});
 });
 
-app.post("/", function(req, res){
-  const post = req.body.newPost;
-
-  homeContent.push(post);
-  console.log(homeContent);
-
-  res.redirect("/compose");
-
-
-
-});
 
 
 
@@ -49,6 +38,17 @@ app.get("/contact", function(req, res){
 });
 app.get("/compose", function(req, res){
   res.render("compose", { contactStartingContent : aboutContent});
+});
+app.post("/compose", function(req, res){
+  const post = req.body.newPost;
+
+  homeContent.push(post);
+  console.log(homeContent);
+
+  res.redirect("/compose");
+
+
+
 });
 
 
