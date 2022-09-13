@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 
 const homeContent =[];
-const postBody =[];
+// const postBody =[];
 const aboutContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
@@ -21,7 +21,7 @@ app.use(express.static("public"));
 //Routes
 //Home Route
 app.get("/", function(req, res){
-  res.render("home", { blogPost: homeContent, bodyContent: postBody});
+  res.render("home", {title: homeContent.title, bodyContent: homeContent.});
 });
 
 
@@ -41,12 +41,11 @@ app.get("/compose", function(req, res){
   res.render("compose", { contactStartingContent : aboutContent});
 });
 app.post("/compose", function(req, res){
-  const post = req.body.newPost;
-  const newBody = req.body.blogBody;
-
-  homeContent.push(post);
-  postBody.push(newBody);
-  console.log(homeContent);
+const post = {
+  title:req.body.newPost,
+  content:req.body.blogBody
+};
+homeContent.push(post);
 
   res.redirect("/compose");
 
