@@ -57,7 +57,9 @@ posts.push(post);
 
 });
 
-
+app.get("/posts/:postName", function(req, res){
+  console.log(req.params.postName);
+});
 
 
 
