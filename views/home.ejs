@@ -5,12 +5,11 @@
 <h1>Home</h1>
 
 
-<%for( let i =0; i<blogPost.length && i<bodyContent.length; i++){%>
-  <p><h1><%= blogPost[i] %></h1></p>
-  <p><%= bodyContent[i] %></p>
-<%}%>
+<% posts.forEach(function(post){%>
 
-
+<h1><%= post.title %></h1>
+<%= post.content %>
+<% }) %>
 
 
 <%-include("partials/footer")%>
