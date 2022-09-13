@@ -19,6 +19,14 @@ app.get("/", function(req, res){
   res.render("home", { startingContent: homeStartingContent});
 });
 
+app.post("/", function(req, res){
+
+  const post = req.body.newPost;
+  console.log(post);
+
+});
+
+
 
 app.get("/about", function(req, res){
   res.render("about", { aboutStartingContent : aboutContent});
@@ -31,7 +39,6 @@ app.get("/contact", function(req, res){
 app.get("/compose", function(req, res){
   res.render("compose", { contactStartingContent : aboutContent});
 });
-app.post("/compose",)
 
 
 
