@@ -28,6 +28,10 @@ app.get("/about", function(req, res){
 app.get("/contact", function(req, res){
   res.render("contact", { contactStartingContent : aboutContent});
 });
+app.get("/compose", function(req, res){
+  res.render("compose", { contactStartingContent : aboutContent});
+});
+app.post("/compose",)
 
 
 
